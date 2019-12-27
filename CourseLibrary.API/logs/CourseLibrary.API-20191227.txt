@@ -5,3 +5,5 @@
 ===> 2019-12-27 10:12:14.591 -06:00 [Information] Starting web host
 ===> 2019-12-27 10:15:00.415 -06:00 [Information] Starting web host
 ===> 2019-12-27 10:23:27.543 -06:00 [Information] Starting web host
+===> 2019-12-27 11:13:06.118 -06:00 [Information] Starting web host
+===> 2019-12-27 11:13:21.400 -06:00 [Error] Hello Houston, we have problem 500 
