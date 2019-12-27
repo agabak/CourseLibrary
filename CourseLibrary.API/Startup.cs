@@ -1,3 +1,4 @@
+using AutoMapper;
 using CourseLibrary.API.DbContexts;
 using CourseLibrary.API.Services;
 using Microsoft.AspNetCore.Builder;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using System;
 
 namespace CourseLibrary.API
 {
@@ -25,6 +27,7 @@ namespace CourseLibrary.API
         public void ConfigureServices(IServiceCollection services)
         {
             Log.Information("Startup::ConfigureServices");
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers(setupAction =>
             {
                 setupAction.ReturnHttpNotAcceptable = true;
