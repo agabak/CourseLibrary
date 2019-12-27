@@ -49,6 +49,18 @@ namespace CourseLibrary.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler(appBuilder =>
+                {
+                    appBuilder.Run(async context =>
+                    {
+                        context.Response.StatusCode = 500;
+                        await context.Response.WriteAsync("An expected error, try it again Later");
+                        Log.Error($"Hello Houston, we have problem {context.Response.StatusCode} ");
+                    });
+                });
+            }
 
             app.UseRouting();
 
