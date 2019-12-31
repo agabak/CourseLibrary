@@ -94,8 +94,7 @@ namespace CourseLibrary.API.Services
             {
                 throw new ArgumentNullException(nameof(authorId));
             }
-
-            return _context.Authors.Any(a => a.Id == authorId);
+             return _context.Authors.Any(a => a.Id == authorId);
         }
 
         public void DeleteAuthor(Author author)
@@ -137,9 +136,9 @@ namespace CourseLibrary.API.Services
             if(!string.IsNullOrWhiteSpace(authorsResourcesParameters.SearchQuery))
             {
                 var searchQuery = authorsResourcesParameters.SearchQuery.Trim().ToUpper();
-                collection = collection.Where(m =>  m.MainCategory.Trim().ToUpper().Contains(searchQuery)
-                                                ||  m.FirstName.Trim().ToUpper().Contains(searchQuery)
-                                                ||  m.LastName.Trim().ToUpper().Contains(searchQuery));
+                collection = collection.Where(m =>  m.MainCategory.Trim().ToUpper().Contains(searchQuery) 
+                                                  || m.FirstName.Trim().ToUpper().Contains(searchQuery)
+                                                  || m.LastName.Trim().ToUpper().Contains(searchQuery));
             }
             return collection.ToList<Author>();
         }
