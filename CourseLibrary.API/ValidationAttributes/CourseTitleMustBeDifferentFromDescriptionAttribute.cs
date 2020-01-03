@@ -7,11 +7,11 @@ namespace CourseLibrary.API.ValidationAttributes
     {
        protected override ValidationResult IsValid(object value, ValidationContext validationContext) 
        {
-           var course = (CourseForCreationDTO)validationContext.ObjectInstance;
+           var course = (CourseForManipulationDTO)validationContext.ObjectInstance;
            if(course.Title == course.Description)
            {
                 return new ValidationResult(
-                    "The provided description should be different from the title.", new [] {nameof(CourseForCreationDTO)}
+                    "The provided description should be different from the title.", new [] {nameof(CourseForManipulationDTO)}
                 );
            }
            return ValidationResult.Success;
