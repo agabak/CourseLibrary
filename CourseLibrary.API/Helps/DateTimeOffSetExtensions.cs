@@ -16,6 +16,11 @@ namespace CourseLibrary.API.Helps
                 age--;
             }
             return age;
-        } 
+        }
+
+        public static (string name, int age) MyCline()
+        {
+            return ("Agaba", 25);
+        }
     }
 }

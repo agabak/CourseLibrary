@@ -26,7 +26,10 @@ namespace CourseLibrary.API.Controllers
          [HttpGet("({ids})", Name="GetAuthorCollection")]
          public IActionResult GetAuthorCollection([FromRoute] [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
          {
-             if(ids == null) return BadRequest();
+          
+             if (ids == null) return BadRequest();
+
+             ids =  ids.ToList<Guid>().Where(x => x != (Guid.Empty)).ToList();
 
              var authorEntities = _courseLibraryRepository.GetAuthors(ids);
              if(ids.Count() != authorEntities.Count()) return NotFound();
