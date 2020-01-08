@@ -108,18 +108,14 @@ namespace CourseLibrary.API.Controllers
             var courseToPatch = _mapper.Map<CourseForUpdateDTO>(courseForAuthorFromRep);
 
             //Add validation
-
             patchDocument.ApplyTo(courseToPatch, ModelState);
             if (!TryValidateModel(courseToPatch)) return ValidationProblem(ModelState);
-
-
 
             _mapper.Map(courseToPatch, courseForAuthorFromRep);
             _courseLibraryRepository.UpdateCourse(courseForAuthorFromRep);
             _courseLibraryRepository.Save();
 
             return NoContent();
-
         }
 
         public override ActionResult ValidationProblem([ActionResultObjectValue] ModelStateDictionary modelStateDictionary)
@@ -127,6 +123,5 @@ namespace CourseLibrary.API.Controllers
             var options = HttpContext.RequestServices.GetRequiredService<IOptions<ApiBehaviorOptions>>();
             return (ActionResult)options.Value.InvalidModelStateResponseFactory(ControllerContext);
         }
-
     }
 }
