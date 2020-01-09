@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CourseLibrary.API.Helps
 {
+    //Customer model binding 
     public class ArrayModelBinder : IModelBinder
     {
         public Task BindModelAsync(ModelBindingContext bindingContext)
